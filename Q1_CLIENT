@@ -1,0 +1,34 @@
+
+#include <stdio.h>
+#include <unistd.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+
+int main(){
+int client_socket;
+struct sockaddr_in server_add;
+int random_num;
+
+//create a client socket
+client_socket = socket(AF_INET, SOCK_STREAM, 0);
+
+//configure server
+server_add.sin_family = AF_INET;
+server_add.sin_port = htons(8080);
+server_add.sin_add.s_add = inet(“192.168.100.209”)
+
+//connect to server
+connect(client_socket, (struct sockadd *) &server_add, sizeof(size_add));
+
+//receive random number from server
+recv(client_socket, &random_num, sizeof(random_num), 0);
+
+//print received random number
+printf(“Received random number: %d\n”, random_num);
+
+//close client socket
+close(client_socket);
+
+return 0;
+}
